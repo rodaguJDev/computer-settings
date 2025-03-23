@@ -28,6 +28,6 @@ if [ -n "$term_on_this_desk" ]; then
     wmctrl -i -a $term_on_this_desk
 else
     # $term_on_this_desk é falso, ou seja, existe um terminal mas ele não está na area de trabalho atual
-    # -x : neste contexto, abrir
+    # -x : neste contexto, "utilizando nome (class) como identificador"
     wmctrl -x -a $terminal_wm_class
 fi;
