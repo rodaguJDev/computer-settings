@@ -1,0 +1,59 @@
+{
+    "workbench.colorTheme": "Material Theme Palenight High Contrast",
+    "workbench.iconTheme": "a-file-icon-vscode",
+    "tailwindCSS.emmetCompletions": true,
+    "editor.lineNumbers": "relative",
+    "editor.cursorSurroundingLines": 8,
+    "editor.formatOnSave": true,
+    "vim.leader": "<space>",
+    "vim.easymotion": true,
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": true,
+    "vim.foldfix": true,
+    "vim.normalModeKeyBindings": [
+        {
+            "before": ["<leader>", "n"],
+            "commands": ["editor.action.addSelectionToNextFindMatch"]
+        },
+        {
+            "before": ["<leader>", "p", "f"],
+            "commands": ["workbench.action.quickOpen"]
+        },
+        {
+            "before": ["<leader>", "a"],
+            "after": ["g", "g", "V", "G"]
+        }
+    ],
+    "vim.visualModeKeyBindings": [
+        {
+            "before": ["K"],
+            "commands": ["editor.action.moveLinesUpAction"],
+            "silent": true
+        },
+        {
+            "before": ["J"],
+            "commands": ["editor.action.moveLinesDownAction"],
+            "silent": true
+        },
+        {
+            "before": ["<leader>", "n"],
+            "commands": ["editor.action.addSelectionToNextFindMatch"]
+        }
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["J"],
+            "after": ["m", "z", "J", "`", "z"]
+        }
+    ],
+    "extensions.experimental.affinity": {
+        "vscodevim.vim": 1
+    },
+    "editor.stickyScroll.enabled": false,
+    "editor.quickSuggestions": {
+        "strings": "on"
+    },
+    "prettier.printWidth": 120,
+    "prettier.tabWidth": 4
+}
