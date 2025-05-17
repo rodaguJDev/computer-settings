@@ -19,20 +19,15 @@ vim.opt.number = true -- Show the absolute number for the current line
 -- Set cursor surrounding lines
 vim.opt.scrolloff = 8 -- Keep 8 lines visible above and below the cursor
 
+-- Move lines up and down
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
 
--- Yank to system clipboard with <leader>y in normal and visual modes
-vim.keymap.set("n", "<leader>y", '"+y', { noremap = true, silent = true })
-vim.keymap.set("v", "<leader>y", '"+y', { noremap = true, silent = true })
+-- Use system clipboard for all yank, delete, change operations
+vim.opt.clipboard:append("unnamedplus")
 
--- Delete without yanking with <leader>d in normal and visual modes
-vim.keymap.set("n", "<leader>d", '"_d', { noremap = true, silent = true })
-vim.keymap.set("v", "<leader>d", '"_d', { noremap = true, silent = true })
+-- Select all keymap
+vim.keymap.set("n", "<leader>a", "ggVG", { noremap = true, silent = true })
 
--- Change without yanking with <leader>c in normal and visual modes
-vim.keymap.set("n", "<leader>c", '"_c', { noremap = true, silent = true })
-vim.keymap.set("v", "<leader>c", '"_c', { noremap = true, silent = true })
-
--- J with cursor retention
+-- J with cursor retention 
 vim.keymap.set("n", "J", "mzJ`z", { noremap = true, silent = true })
