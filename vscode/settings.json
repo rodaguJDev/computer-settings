@@ -6,7 +6,6 @@
     "editor.cursorSurroundingLines": 8,
     "editor.formatOnSave": true,
     "vim.leader": "<space>",
-    "vim.easymotion": true,
     "vim.incsearch": true,
     "vim.useSystemClipboard": true,
     "vim.useCtrlKeys": true,
