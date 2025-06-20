@@ -121,6 +121,8 @@ maximized=false
 [org/gnome/settings-daemon/plugins/media-keys]
 control-center=['<Super>i']
 custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/PopLaunch1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/']
+email=@as []
+home=['<Super>e']
 terminal=@as []
 
 [org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/PopLaunch1]
