@@ -8,6 +8,21 @@ window-height=776
 window-maximized=true
 window-width=1496
 
+[org/gnome/calculator]
+accuracy=9
+angle-units='degrees'
+base=10
+button-mode='basic'
+number-format='automatic'
+show-thousands=false
+show-zeroes=false
+source-currency=''
+source-units='degree'
+target-currency=''
+target-units='radian'
+window-position=(25, 25)
+word-size=64
+
 [org/gnome/control-center]
 last-panel='keyboard'
 
@@ -115,7 +130,7 @@ default-folder-viewer='icon-view'
 search-filter-time-type='last_modified'
 
 [org/gnome/nautilus/window-state]
-initial-size=(683, 396)
+initial-size=(756, 800)
 maximized=false
 
 [org/gnome/settings-daemon/plugins/media-keys]
