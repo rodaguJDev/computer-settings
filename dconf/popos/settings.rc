@@ -2,8 +2,8 @@
 visible-name='Default'
 
 [io/elementary/appcenter/settings]
-cached-drivers=['nvidia-driver-550-open, (kernel modules provided by nvidia-dkms-550-open)', 'nvidia-driver-575, (kernel modules provided by nvidia-dkms-575)', 'nvidia-driver-470-server, (kernel modules provided by nvidia-dkms-470-server)', 'nvidia-driver-570-open, (kernel modules provided by nvidia-dkms-570-open)', 'nvidia-driver-545-open, (kernel modules provided by nvidia-dkms-545-open)', 'nvidia-driver-565-open, (kernel modules provided by nvidia-dkms-565-open)', 'nvidia-driver-570, (kernel modules provided by nvidia-dkms-570)', 'nvidia-driver-570-server, (kernel modules provided by nvidia-dkms-570-server)', 'nvidia-driver-535-open, (kernel modules provided by nvidia-dkms-535-open)', 'nvidia-driver-570-server-open, (kernel modules provided by nvidia-dkms-570-server-open)', 'nvidia-driver-535-server-open, (kernel modules provided by nvidia-dkms-535-server-open)', 'nvidia-driver-565, (kernel modules provided by nvidia-dkms-565)', 'nvidia-driver-535-server, (kernel modules provided by nvidia-dkms-535-server)', 'nvidia-driver-575-open, (kernel modules provided by nvidia-dkms-575-open)', 'nvidia-driver-470, (kernel modules provided by nvidia-dkms-470)']
-last-refresh-time=int64 1750370500
+cached-drivers=['nvidia-driver-470, (kernel modules provided by nvidia-dkms-470)', 'nvidia-driver-535-server, (kernel modules provided by nvidia-dkms-535-server)', 'nvidia-driver-535-open, (kernel modules provided by nvidia-dkms-535-open)', 'nvidia-driver-570-open, (kernel modules provided by nvidia-dkms-570-open)', 'nvidia-driver-535-server-open, (kernel modules provided by nvidia-dkms-535-server-open)', 'nvidia-driver-575-open, (kernel modules provided by nvidia-dkms-575-open)', 'nvidia-driver-570, (kernel modules provided by nvidia-dkms-570)', 'nvidia-driver-565, (kernel modules provided by nvidia-dkms-565)', 'nvidia-driver-565-open, (kernel modules provided by nvidia-dkms-565-open)', 'nvidia-driver-570-server, (kernel modules provided by nvidia-dkms-570-server)', 'nvidia-driver-575, (kernel modules provided by nvidia-dkms-575)', 'nvidia-driver-570-server-open, (kernel modules provided by nvidia-dkms-570-server-open)', 'nvidia-driver-545-open, (kernel modules provided by nvidia-dkms-545-open)', 'nvidia-driver-550-open, (kernel modules provided by nvidia-dkms-550-open)', 'nvidia-driver-470-server, (kernel modules provided by nvidia-dkms-470-server)']
+last-refresh-time=int64 1750468979
 window-height=776
 window-maximized=true
 window-width=1496
@@ -24,7 +24,13 @@ window-position=(25, 25)
 word-size=64
 
 [org/gnome/control-center]
-last-panel='keyboard'
+last-panel='default-apps'
+
+[org/gnome/desktop/a11y/interface]
+high-contrast=false
+
+[org/gnome/desktop/a11y/keyboard]
+mousekeys-enable=false
 
 [org/gnome/desktop/app-folders/folders/Pop-Office]
 apps=['libreoffice-calc.desktop', 'libreoffice-draw.desktop', 'libreoffice-impress.desktop', 'libreoffice-math.desktop', 'libreoffice-startcenter.desktop', 'libreoffice-writer.desktop']
@@ -55,8 +61,6 @@ enable-animations=false
 enable-hot-corners=false
 font-antialiasing='grayscale'
 font-hinting='slight'
-gtk-theme='Dracula'
-icon-theme='Flatery-Indigo'
 locate-pointer=false
 
 [org/gnome/desktop/notifications]
@@ -120,6 +124,19 @@ sort-type='ascending'
 sidebar-width=200
 window-height=480
 window-width=600
+
+[org/gnome/gedit/plugins]
+active-plugins=['spell', 'sort', 'openlinks', 'modelines', 'filebrowser', 'docinfo']
+
+[org/gnome/gedit/preferences/ui]
+show-tabs-mode='auto'
+
+[org/gnome/gedit/state/window]
+bottom-panel-size=140
+side-panel-active-page='GeditWindowDocumentsPanel'
+side-panel-size=200
+size=(900, 700)
+state=43780
 
 [org/gnome/mutter]
 edge-tiling=true
