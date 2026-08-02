@@ -1,2 +1,0 @@
-source ~/Scripts/aliases.sh
-

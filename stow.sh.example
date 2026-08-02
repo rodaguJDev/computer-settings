@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-# TODO: Run stow for every folder available
-# Except keep everything commented out. After cloning the repo the user 
-# should rename the file to 'stow.sh' and uncomment the modules he wishes to use.
