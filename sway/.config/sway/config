@@ -188,6 +188,11 @@ input "type:pointer" {
     # If there are multiple scratchpad windows, this command cycles through them.
     bindsym $mod+minus scratchpad show
 #
+# Special Screenshots:
+#
+bindsym $mod+Shift+s exec slurp | grim -g - - | tee ~/Pictures/$(date +%s).png | wl-copy
+
+
 # Resizing containers:
 #
 # mode "resize" {
