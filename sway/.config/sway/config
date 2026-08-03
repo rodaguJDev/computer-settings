@@ -14,7 +14,7 @@ set $r_right p
 # Your preferred terminal emulator
 set $term kitty
 # Your preferred application launcher
-set $menu exec rofi -show drun
+set $menu rofi -show drun -show-icons -modes "drun,calc" -calc-command "echo -n '{result}' | wl-copy"
 
 ### Output configuration
 #
