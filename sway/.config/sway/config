@@ -78,6 +78,9 @@ input "type:pointer" {
     # Start a browser
     bindsym $mod+b exec xdg-open https://
 
+    # Start explorer
+    bindsym $mod+e exec dolphin
+
     # Kill focused window
     bindsym $mod+Shift+q kill
 
@@ -261,4 +264,5 @@ bar {
 gaps inner 1
 gaps outer 1
 
-include /etc/sway/config.d/*
+# include /etc/sway/config.d/*
+include $HOME/.config/sway/config.d/*
