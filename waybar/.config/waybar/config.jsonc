@@ -73,7 +73,7 @@
         }
     },
     "keyboard-state": {
-        "numlock": true,
+        "numlock": false,
         "capslock": true,
         "format": "{name} {icon}",
         "format-icons": {
@@ -117,13 +117,13 @@
         "tooltip-format": "MPD (connected)",
         "tooltip-format-disconnected": "MPD (disconnected)"
     },
-    "idle_inhibitor": {
-        "format": "{icon}",
-        "format-icons": {
-            "activated": "",
-            "deactivated": ""
-        }
-    },
+    // "idle_inhibitor": {
+    //     "format": "{icon}",
+    //     "format-icons": {
+    //         "activated": "",
+    //         "deactivated": ""
+    //     }
+    // },
     "tray": {
         // "icon-size": 21,
         "spacing": 10
@@ -135,17 +135,26 @@
     "clock": {
         "format": "{:%a, %d. %b  %H:%M}",
         "tooltip": false,
-        "on-click-middle": "gnome-calendar"
+        "on-click-middle": "gnome-calendar",
+        "on-click": "gnome-calendar"
     },
     "cpu": {
         "format": "{usage}% ",
         "tooltip": true,
-        "on-click-middle": "missioncenter"
+        "on-click-middle": "missioncenter",
+        "on-click": "missioncenter"
     },
     "memory": {
         "format": "{}% ",
         "tooltip": true,
-        "on-click-middle": "missioncenter"
+        "on-click-middle": "missioncenter",
+        "on-click": "missioncenter"
+    },
+    "disk": {
+        "interval": 30,
+        "format": "{percentage_used}% ",
+        "on-click-middle": "dolphin",
+        "on-click": "dolphin"
     },
     "backlight": {
         // "device": "acpi_video1",
@@ -166,7 +175,8 @@
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
         "format-icons": ["", "", "", "", ""],
-        "on-click-middle": "missioncenter"
+        "on-click-middle": "missioncenter",
+        "on-click": "missioncenter"
     },
     "battery#bat2": {
         "bat": "BAT2"
@@ -211,10 +221,5 @@
         },
         "on-click-middle": "pavucontrol",
         "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-    },
-    "disk": {
-        "interval": 30,
-        "format": "{percentage_used}% ",
-        "on-click-middle": "dolphin"
     }
 }
