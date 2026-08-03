@@ -1,27 +1,45 @@
 /*
- * Waybar theme — Nord-inspired, matching the palette from your
- * GTK/grub scss (color_type: nord, variant: dark, theme: default)
+ * waybar theme — nord-inspired, matching the palette from your
+ * gtk/grub scss (color_type: nord, variant: dark, theme: default)
  *
  * theme == 'default' means $primary is just the neutral
  * $theme_default_color (#dbdee5 on dark), not a hue — so this
  * palette is intentionally monochrome/grey rather than colorful.
  *
- * Surfaces:  #292e38 (e) #2b303b (f) #313744 (g) #404859 (h)
- * Text:      #dbdee5 (primary) / #9aa2b1 (secondary) / #6b7280 (disabled)
- * Status only: green #a0c082 (charging/ok)  red #d4878f (critical/error)
+ * Colors are now named with @define-color so intent is explicit
+ * instead of hunting for hex values by eye. Module color choices
+ * follow a two-tier hierarchy:
+ *   - @text-primary   : "live" / at-a-glance modules (clock, cpu,
+ *                        network, audio, mpd, custom-media)
+ *   - @text-secondary : lower-priority background stats (memory,
+ *                        disk, backlight, temperature)
+ * If you didn't intend memory/disk to be dimmer than cpu/network,
+ * just swap their `color: @text-secondary;` to `@text-primary;` below.
  */
 
+@define-color surface-e #292e38;
+@define-color surface-f #2b303b;
+@define-color surface-g #313744;
+@define-color surface-h #404859;
+
+@define-color text-primary #dbdee5;
+@define-color text-secondary #9aa2b1;
+@define-color text-disabled #6b7280;
+
+@define-color status-ok #a0c082;
+@define-color status-critical #d4878f;
+
 * {
-    font-family: "FiraCode Nerd Font", Roboto, Helvetica, Arial, sans-serif;
+    font-family: "firacode nerd font", roboto, helvetica, arial, sans-serif;
     font-size: 13px;
     border: none;
     border-radius: 0;
 }
 
 window#waybar {
-    background-color: #2b303b;
-    border-bottom: 2px solid #404859;
-    color: #dbdee5;
+    background-color: @surface-f;
+    border-bottom: 2px solid @surface-h;
+    color: @text-primary;
     transition-property: background-color;
     transition-duration: .5s;
 }
@@ -31,11 +49,11 @@ window#waybar.hidden {
 }
 
 window#waybar.termite {
-    background-color: #292e38;
+    background-color: @surface-e;
 }
 
 window#waybar.chromium {
-    background-color: #292e38;
+    background-color: @surface-e;
     border: none;
 }
 
@@ -47,16 +65,16 @@ button {
 
 button:hover {
     background: inherit;
-    box-shadow: inset 0 -3px #dbdee5;
+    box-shadow: inset 0 -3px @text-primary;
 }
 
 #pulseaudio:hover {
-    background-color: #404859;
+    background-color: @surface-h;
 }
 
-/* Workspaces */
+/* workspaces */
 #workspaces {
-    background-color: #313744;
+    background-color: @surface-g;
     margin: 4px 4px 4px 0;
     border-radius: 1px;
     padding: 0 2px;
@@ -67,36 +85,36 @@ button:hover {
     margin: 3px 2px;
     border-radius: 1px;
     background-color: transparent;
-    color: #dbdee5;
+    color: @text-primary;
 }
 
 #workspaces button:hover {
-    background: #404859;
-    color: #dbdee5;
+    background: @surface-h;
+    color: @text-primary;
     box-shadow: none;
 }
 
 #workspaces button.focused,
 #workspaces button.active {
-    background-color: #dbdee5;
-    color: #292e38;
+    background-color: @text-primary;
+    color: @surface-e;
     box-shadow: none;
 }
 
 #workspaces button.urgent {
-    background-color: #d4878f;
-    color: #292e38;
+    background-color: @status-critical;
+    color: @surface-e;
 }
 
 #mode {
-    background-color: #404859;
-    box-shadow: inset 0 -3px #dbdee5;
+    background-color: @surface-h;
+    box-shadow: inset 0 -3px @text-primary;
     border-radius: 8px;
     margin: 4px;
-    color: #dbdee5;
+    color: @text-primary;
 }
 
-/* Shared module look: pill-shaped, dark surface, colored accent text/icon */
+/* shared module look: pill-shaped, dark surface, colored accent text/icon */
 #window,
 #workspaces {
     margin: 4px 4px;
@@ -132,13 +150,13 @@ button:hover {
     padding: 0 12px;
     margin: 4px 3px;
     border-radius: 8px;
-    background-color: #313744;
-    color: #dbdee5;
+    background-color: @surface-g;
+    color: @text-primary;
 }
 
 #window {
     background-color: transparent;
-    color: #dbdee5;
+    color: @text-primary;
 }
 
 #clock {
@@ -146,25 +164,25 @@ button:hover {
 }
 
 #battery {
-    background-color: #313744;
-    color: #a0c082;
+    background-color: @surface-g;
+    color: @status-ok;
 }
 
 #battery.charging, #battery.plugged {
-    color: #292e38;
-    background-color: #a0c082;
+    color: @surface-e;
+    background-color: @status-ok;
 }
 
 @keyframes blink {
     to {
-        background-color: #d4878f;
-        color: #292e38;
+        background-color: @status-critical;
+        color: @surface-e;
     }
 }
 
 #battery.critical:not(.charging) {
-    background-color: #313744;
-    color: #d4878f;
+    background-color: @surface-g;
+    color: @status-critical;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: steps(12);
@@ -173,89 +191,81 @@ button:hover {
 }
 
 #power-profiles-daemon.performance {
-    background-color: #d4878f;
-    color: #292e38;
+    background-color: @status-critical;
+    color: @surface-e;
 }
 
 #power-profiles-daemon.balanced {
-    background-color: #dbdee5;
-    color: #292e38;
+    background-color: @text-primary;
+    color: @surface-e;
 }
 
 #power-profiles-daemon.power-saver {
-    background-color: #a0c082;
-    color: #292e38;
+    background-color: @status-ok;
+    color: @surface-e;
 }
 
 label:focus {
-    background-color: #292e38;
+    background-color: @surface-e;
 }
 
 #cpu {
-    color: #dbdee5;
-}
-
-#memory {
-    color: #9aa2b1;
-}
-
-#disk {
-    color: #9aa2b1;
+    color: @text-primary;
 }
 
 #backlight {
-    color: #9aa2b1;
+    color: @text-secondary;
 }
 
 #network {
-    color: #dbdee5;
+    color: @text-primary;
 }
 
 #network.disconnected {
-    color: #d4878f;
+    color: @status-critical;
 }
 
 #pulseaudio {
-    color: #dbdee5;
+    color: @text-primary;
 }
 
 #pulseaudio.muted {
-    color: #6b7280;
+    color: @text-disabled;
 }
 
 #wireplumber {
-    color: #dbdee5;
+    color: @text-primary;
 }
 
 #wireplumber.muted {
-    color: #d4878f;
+    color: @status-critical;
 }
 
 #custom-media {
-    background-color: #313744;
-    color: #dbdee5;
+    background-color: @surface-g;
+    color: @text-primary;
     min-width: 100px;
 }
 
 #custom-media.custom-spotify {
-    color: #dbdee5;
+    color: @text-primary;
 }
 
 #custom-media.custom-vlc {
-    color: #9aa2b1;
+    color: @text-secondary;
 }
 
 #temperature {
-    color: #9aa2b1;
+    color: @text-secondary;
 }
 
 #temperature.critical {
-    color: #d4878f;
-    background-color: #313744;
+    color: @status-critical;
+    background-color: @surface-g;
 }
 
 #tray {
-    background-color: #404859;
+    background-color: @surface-h;
 }
 
 #tray > .passive {
@@ -264,38 +274,38 @@ label:focus {
 
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
-    background-color: #d4878f;
+    background-color: @status-critical;
 }
 
 #idle_inhibitor {
-    background-color: #292e38;
-    color: #6b7280;
+    background-color: @surface-e;
+    color: @text-disabled;
 }
 
 #idle_inhibitor.activated {
-    background-color: #dbdee5;
-    color: #292e38;
+    background-color: @text-primary;
+    color: @surface-e;
 }
 
 #mpd {
-    color: #dbdee5;
+    color: @text-primary;
 }
 
 #mpd.disconnected {
-    color: #d4878f;
+    color: @status-critical;
 }
 
 #mpd.stopped {
-    color: #6b7280;
+    color: @text-disabled;
 }
 
 #mpd.paused {
-    color: #9aa2b1;
+    color: @text-secondary;
 }
 
 #language {
-    background: #404859;
-    color: #dbdee5;
+    background: @surface-h;
+    color: @text-primary;
     padding: 0 8px;
     margin: 4px 3px;
     border-radius: 8px;
@@ -303,8 +313,8 @@ label:focus {
 }
 
 #keyboard-state {
-    background: #404859;
-    color: #dbdee5;
+    background: @surface-h;
+    color: @text-primary;
     padding: 0 0px;
     min-width: 16px;
 }
@@ -318,8 +328,8 @@ label:focus {
 }
 
 #scratchpad {
-    background: #404859;
-    color: #dbdee5;
+    background: @surface-h;
+    color: @text-primary;
 }
 
 #scratchpad.empty {
@@ -338,17 +348,17 @@ label:focus {
 }
 
 #privacy-item.screenshare {
-    background-color: #d4878f;
+    background-color: @status-critical;
 }
 
 #privacy-item.audio-in {
-    background-color: #404859;
+    background-color: @surface-h;
 }
 
 #privacy-item.audio-out {
-    background-color: #404859;
+    background-color: @surface-h;
 }
 
 #privacy-item.location {
-    background-color: #404859;
+    background-color: @surface-h;
 }
