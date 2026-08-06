@@ -1,0 +1,10 @@
+#     bindsym Escape mode "default"
+
+# Start a browser
+bindsym $mod+b exec xdg-open https://
+
+# Start explorer
+bindsym $mod+e exec xdg-open $HOME
+
+# Lock screen
+bindsym Control+$mod+l exec swaylock -f -c 000000
