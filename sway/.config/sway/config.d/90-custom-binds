@@ -7,4 +7,4 @@ bindsym $mod+b exec xdg-open https://
 bindsym $mod+e exec xdg-open $HOME
 
 # Lock screen
-bindsym Control+$mod+l exec swaylock -f -c 000000
+bindsym Control+$mod+l exec swaylock -f
