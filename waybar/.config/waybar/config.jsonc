@@ -141,19 +141,16 @@
     "cpu": {
         "format": "{usage}% ",
         "tooltip": true,
-        "on-click-middle": "missioncenter",
-        "on-click": "missioncenter"
+        "on-click": "kitty --class btop-popup btop"
     },
     "memory": {
         "format": "{}% ",
         "tooltip": true,
-        "on-click-middle": "missioncenter",
-        "on-click": "missioncenter"
+        "on-click": "kitty --class btop-popup btop"
     },
     "disk": {
         "interval": 30,
         "format": "{percentage_used}% ",
-        "on-click-middle": "dolphin",
         "on-click": "dolphin"
     },
     "backlight": {
@@ -175,8 +172,7 @@
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
         "format-icons": ["", "", "", "", ""],
-        "on-click-middle": "missioncenter",
-        "on-click": "missioncenter"
+        "on-click": "kitty --class btop-popup btop"
     },
     "battery#bat2": {
         "bat": "BAT2"
@@ -200,7 +196,8 @@
         "format-linked": "{ifname} (No IP) 󰊗",
         "format-disconnected": "Disconnected ⚠",
         "format-alt": "{ifname}: {ipaddr}/{cidr}",
-        "on-click-middle": "kitty --class nmtui-popup nmtui"
+        "format-alt-click": "click-right",
+        "on-click": "kitty --class nmtui-popup nmtui"
     },
     "wireplumber": {
         // "scroll-step": 1, // %, can be a float

@@ -1,5 +1,6 @@
 ### Window Configuration
-for_window [app_id="nmtui-popup"] floating enable, resize set width 800 px height 500 px, move absolute position center
+for_window [app_id="nmtui-popup"] floating enable, resize set width 900 px height 600 px, move absolute position center
+# for_window [app_id="btop-popup"] floating enable, resize set width 900 px height 600 px, move absolute position center
 for_window [app_id="pavucontrol"] floating enable
 for_window [app_id="org.gnome.Calendar"] floating enable
 
