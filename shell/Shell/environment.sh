@@ -1,15 +1,17 @@
 #!/usr/bin/env bash
 
-# sudo
-export SUDO_EDITOR="/usr/bin/nvim"
+# sudo editor fallback
+EDITORS="nvim vim nano"
+
+for editor in $EDITORS; do
+    if command -v "$editor" >/dev/null 2>&1; then
+        export SUDO_EDITOR="$(command -v "$editor")"
+        break
+    fi
+done
 
 # fnm
-export PATH="/run/user/1000/fnm_multishells/24889_1785803530128/bin":$PATH
-export FNM_MULTISHELL_PATH="/run/user/1000/fnm_multishells/24889_1785803530128"
-export FNM_VERSION_FILE_STRATEGY="local"
-export FNM_DIR="/home/rodaguj/.local/share/fnm"
-export FNM_LOGLEVEL="info"
-export FNM_NODE_DIST_MIRROR="https://nodejs.org/dist"
-export FNM_COREPACK_ENABLED="false"
-export FNM_RESOLVE_ENGINES="true"
-export FNM_ARCH="x64"
+if command -v fnm >/dev/null 2>&1; then
+    eval "$(fnm env --use-on-cd)"
+fi
+
