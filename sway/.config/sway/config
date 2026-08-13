@@ -211,6 +211,11 @@ bindsym $mod+$r_left resize shrink width 10px
 bindsym $mod+$r_down resize grow height 10px
 bindsym $mod+$r_up resize shrink height 10px
 bindsym $mod+$r_right resize grow width 10px
+
+bindsym $mod+Shift+$r_left resize shrink width 50px
+bindsym $mod+Shift+$r_down resize grow height 50px
+bindsym $mod+Shift+$r_up resize shrink height 50px
+bindsym $mod+Shift+$r_right resize grow width 50px
 #
 # Utilities:
 #
