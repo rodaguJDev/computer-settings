@@ -31,3 +31,6 @@ vim.keymap.set("n", "<leader>a", "ggVG", { noremap = true, silent = true })
 
 -- J with cursor retention 
 vim.keymap.set("n", "J", "mzJ`z", { noremap = true, silent = true })
+
+-- Override terminal shortcut
+vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]], { silent = true })

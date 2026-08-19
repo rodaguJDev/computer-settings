@@ -96,8 +96,8 @@ button:hover {
 
 #workspaces button.focused,
 #workspaces button.active {
-    background-color: @text-primary;
-    color: @surface-e;
+    background-color: @surface-h;
+    color: @text-primary;
     box-shadow: none;
 }
 
@@ -150,7 +150,6 @@ button:hover {
     padding: 0 12px;
     margin: 4px 3px;
     border-radius: 1px;
-    background-color: @surface-g;
     color: @text-primary;
     transition-property: background-color;
     transition-duration: .2s;
@@ -175,7 +174,7 @@ button:hover {
 #mpd:hover,
 #language:hover,
 #keyboard-state:hover {
-    background-color: @surface-h;
+    background-color: @surface-g;
 }
 
 #window {
