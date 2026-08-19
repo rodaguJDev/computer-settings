@@ -86,11 +86,6 @@ button:hover {
     border-radius: 1px;
     background-color: transparent;
     color: @text-primary;
-}
-
-#workspaces button:hover {
-    background: @surface-h;
-    color: @text-primary;
     box-shadow: none;
 }
 
