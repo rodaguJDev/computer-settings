@@ -263,8 +263,5 @@ bar {
 # }
 
 
-gaps inner 1
-gaps outer 1
-
 # include /etc/sway/config.d/*
 include $HOME/.config/sway/config.d/*
