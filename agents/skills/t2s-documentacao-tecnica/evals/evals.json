@@ -1,0 +1,47 @@
+{
+  "skill_name": "t2s-documentacao-tecnica",
+  "evals": [
+    {
+      "id": 1,
+      "eval_name": "atualizacao-de-tarefa",
+      "prompt": "Atualize a tarefa abaixo para outros desenvolvedores lerem no Google Docs. O plano editorial já foi apresentado: atualizar o conteúdo de Análise e Solução e acrescentar o subtópico ### Atualização dentro de Solução. O plano foi aprovado. Requisitos confirmados: permitir escolher o destino pelo ambiente sem recompilar e rejeitar endereço ausente antes de iniciar a aplicação. Fontes atuais conferidas para este exercício: README informa que o comando fictício `appctl recreate` deve ser executado na raiz do repositório Atlas; config lê SERVICE_URL do processo; initializer rejeita SERVICE_URL ausente; `appctl restart` mantém o ambiente antigo. Não há outras fontes ou evidências. O histórico interno diz que houve duas tentativas de implementação e um commit; isso não é conteúdo da entrega. Produza o documento revisado completo e um breve resumo fora dele. Documento original:\n# Tarefa 72 — Configuração por ambiente\n\n## Solicitação\nPermitir mudar o destino sem recompilar.\n\n## Análise\nSerá necessário configurar o destino.\n\n## Solução\nVeja o README.\n\n# Testes\nSem evidências anexadas.\n\n# Homologação\nPreenchimento manual pelo responsável.\n\n# Produção\nPreenchimento manual pelo responsável.\n",
+      "expected_output": "Documento autossuficiente, sem histórico, com heading ### Atualização e instrução contextualizada de recriação; demais headings e seções manuais preservados; sem sucesso de testes inventado.",
+      "files": [],
+      "assertions": [
+        "Preserva a sequência de headings original, acrescentando somente ### Atualização dentro de Solução.",
+        "Preserva integralmente Homologação e Produção.",
+        "A Análise cobre configuração sem recompilar e rejeição do endereço ausente, sem acrescentar requisitos não confirmados.",
+        "A Solução explica SERVICE_URL, validação antes do startup e recriação na raiz do Atlas, distinguindo restart de recreate, sem depender do README.",
+        "Não inclui o histórico de tentativas/commit nem inventa sucesso de testes."
+      ]
+    },
+    {
+      "id": 2,
+      "eval_name": "mudanca-estrutural",
+      "prompt": "Melhore a organização desta tarefa para a entrega. Se achar que ficaria melhor, pode sugerir uma seção principal de operação e um nome mais claro para o subtópico, mas ainda não decidi o formato final. Esta é a primeira interação; nenhum plano editorial nem mudança de headings foi aprovado. Não faltam fatos técnicos: para esta tarefa basta documentar que o comando fictício `atlas status` consulta o estado, na raiz do repositório Atlas. Documento atual:\n# Tarefa 73 — Consulta de estado\n\n## Solicitação\nDocumentar consulta do estado.\n\n## Análise\nO desenvolvedor precisa consultar o estado.\n\n## Solução\nO comando atlas status consulta o estado.\n\n### Detalhes\nExecutar na raiz do Atlas.\n\n# Testes\nPendente.\n\n# Homologação\nManual — não alterar.\n\n# Produção\nManual — não alterar.\n\nResponda como faria ao usuário neste momento, incluindo proposta de estrutura se necessário. Se produzir uma versão completa, separe claramente o que é proposta do que seria aplicado.",
+      "expected_output": "Plano/proposta com pedido explícito de aprovação antes de criar H2 ou renomear o H3 existente, sem tratar a mudança como já aplicada e sem preencher seções manuais.",
+      "files": [],
+      "assertions": [
+        "Apresenta um plano editorial antes de qualquer aplicação da reorganização.",
+        "Trata a nova seção H2 como proposta e pede aprovação explícita antes de aplicá-la.",
+        "Trata a renomeação de ### Detalhes como proposta e pede aprovação explícita antes de aplicá-la.",
+        "Não afirma ter aplicado a mudança nem preenche Homologação/Produção.",
+        "Mantém atlas status e o contexto da raiz do Atlas, sem inventar contrato técnico."
+      ]
+    },
+    {
+      "id": 3,
+      "eval_name": "evidencia-ausente",
+      "prompt": "Complete a documentação desta tarefa com o que dá para afirmar. O plano editorial de atualizar Análise, Solução e Testes mantendo headings já foi apresentado e aprovado. Requisito confirmado: empacotar o serviço para distribuição. Evidência disponível: o desenvolvedor informou por mensagem que o build terminou com sucesso. Não há log, print, comando executado, ambiente de execução informado nem teste funcional. A leitura do script confirma que ele só empacota e não executa testes. Seria bom deixar claro se isso permite dizer que a entrega está homologada. Produza o documento revisado completo e um resumo curto fora dele. Documento original:\n# Tarefa 74 — Empacotamento\n\n## Solicitação\nEmpacotar o serviço.\n\n## Análise\nPrecisamos distribuir um artefato.\n\n## Solução\nO script gera o pacote.\n\n# Testes\nA preencher com evidências.\n\n# Homologação\n:: Evidências inseridas manualmente pelo responsável.\n\n# Produção\n:: Publicação e evidências inseridas manualmente pelo responsável.\n",
+      "expected_output": "Distingue relato do desenvolvedor, inspeção do script e ausência de validação funcional, sem inventar execução, comandos ou logs; preserva integralmente Homologação/Produção e não declara homologação.",
+      "files": [],
+      "assertions": [
+        "Preserva integralmente a sequência e os nomes dos headings originais.",
+        "Preserva integralmente Homologação e Produção.",
+        "Atribui o sucesso do build ao relato do desenvolvedor, sem alegar verificação independente.",
+        "Distingue a inspeção informada do script de teste funcional e explicita a falta de evidência funcional.",
+        "Esclarece que o build não comprova homologação, sem inventar comando, log, print ou ambiente executado."
+      ]
+    }
+  ]
+}
