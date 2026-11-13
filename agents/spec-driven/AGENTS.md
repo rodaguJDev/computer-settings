@@ -52,7 +52,7 @@ Diff size is a poor proxy for risk: a one-line change can alter a business rule,
 - involves multi-step, hard-to-reverse, or data-affecting migrations;
 - depends on decisions the developer has not yet made.
 
-For the full process: clarify first, write a testable specification, then the implementation plan, and **persist the approved specification and plan as Markdown in the repository** using its existing documentation conventions (create those files only after the engineering-change approval gate).
+For the full process: clarify first, write a testable specification, then the implementation plan, and **persist the approved specification and plan as Markdown in the repository** using the project's working-file convention (see below; create those files only after the engineering-change approval gate).
 
 These examples are illustrative, not exhaustive. If a change matches none of them but carries similar uncertainty or blast radius, treat it as substantial and say why. If the domain impact of a change cannot be determined, that uncertainty is itself a reason to ask. State the chosen level and the reason in one line at the top of the plan so the developer can raise or lower it. Do not create spec/plan files merely to satisfy a template, and do not inflate small changes into ceremonies.
 
@@ -71,23 +71,34 @@ As applicable:
 
 A specification states: goal and context; testable acceptance criteria; explicit non-goals; constraints and affected business rules; and an **open questions** section. Unresolved questions are listed, never silently resolved by assumption.
 
+### Working-file convention
+
+Full-process plans are persisted following the convention recorded in the project's root `AGENTS.md`. If none is recorded, before persisting the first plan, explain this default to the developer and ask whether to adopt it or change it (for example, a different folder):
+
+- `context/` at the project root: an agent-owned working folder, committed with the work it describes.
+- `context/PLAN-<title>.md`: one per agreed plan, with `<title>` in short kebab-case. It holds the agreed specification and plan: goal, acceptance criteria, constraints and validations, non-goals, open questions, and the implementation plan.
+- `context/JOB-<title>.md`: created when implementation starts; the agent's control file. It holds the task list with each task's status, the current or last task worked on, the next step, and anything needed to resume in a fresh session. Update it at each milestone and before ending a session.
+
+Record the outcome under a "Working-file convention" heading in the project root `AGENTS.md` (creating the file if absent): either "default approved" or the developer's overrides. Once recorded, follow it and do not ask again.
+
 ### Asking questions
 
 When developer input is needed, use the harness's native interactive question facility if one exists (structured prompts with selectable options plus free-text fallback); otherwise ask in plain text with the same structure. Ask concise, decision-oriented questions, grouped by topic. Explain the consequence of each material choice and recommend an option when evidence supports one. If the developer has already answered a question, do not ask it again. See section 11 for harness-specific tool names.
 
 ## 4. Required plan and approval gate
 
-**Before every repository-changing task**, present a plan in the conversation. Keep it brief for small changes and detailed for complex changes. Include:
+**Before every repository-changing task**, present a plan in the conversation. Keep it brief for small changes and detailed for complex changes. Include at least:
 
 1. **Process level:** light or full, with a one-line reason.
 2. **Goal and acceptance criteria:** the desired observable outcome.
-3. **Scope:** in-scope and out-of-scope behavior.
-4. **Implementation approach:** steps, design choices, and relevant alternatives/trade-offs.
-5. **Files:** exact existing paths to change and expected new paths. Mark uncertain paths explicitly; inspect further or request approval for later additions.
-6. **Verification:** specific tests, build/lint checks, and ways to demonstrate correctness, with each acceptance criterion mapped to the test or explicit manual check that covers it.
-7. **Risks and side effects:** migrations, dependencies, configuration, compatibility, security, external calls, or irreversible actions.
-8. **Commit boundaries:** meaningful, independently reviewable local commit milestones.
-9. **Open decisions:** questions that still require developer input.
+3. **Constraints and validations:** known constraints, validation rules, and affected business rules.
+4. **Scope:** in-scope and out-of-scope behavior.
+5. **Implementation approach:** steps, design choices, and relevant alternatives/trade-offs.
+6. **Files:** exact existing paths to change and expected new paths. Mark uncertain paths explicitly; inspect further or request approval for later additions.
+7. **Verification:** specific tests, build/lint checks, and ways to demonstrate correctness, with each acceptance criterion mapped to the test or explicit manual check that covers it.
+8. **Risks and side effects:** migrations, dependencies, configuration, compatibility, security, external calls, or irreversible actions.
+9. **Commit boundaries:** meaningful, independently reviewable local commit milestones.
+10. **Open questions:** questions that still require developer input.
 
 **Approval gate:** If the task affects code, behavior, architecture, tests, dependencies, tooling, repository instructions (including `AGENTS.md`), or configuration, **stop after presenting the plan** and wait for explicit approval (for example, "approve this plan" or "go ahead"). Do not interpret the initial request, silence, or an unrelated acknowledgment as approval. Approval to implement is not approval to deploy or interact with remotes.
 
@@ -100,7 +111,7 @@ If the plan changes materially during execution, pause and present the revised p
 After the plan has been presented and any required approval obtained:
 
 - Work in small, coherent, reviewable increments that follow the approved milestones.
-- For the full process, size milestones so each can be completed and resumed in a fresh session from the persisted plan alone. Keep a status checklist in the plan file current as milestones complete.
+- For the full process, size milestones so each can be completed and resumed in a fresh session from the persisted plan and job files alone. Keep the job file's task list and status current as milestones complete.
 - Make the smallest change that completely satisfies the specification. Do not perform opportunistic refactors or cosmetic rewrites.
 - Preserve existing public behavior and contracts unless the approved specification changes them.
 - Follow the repository's formatting, naming, architecture, and error-handling conventions.
