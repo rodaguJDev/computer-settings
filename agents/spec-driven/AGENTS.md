@@ -140,6 +140,7 @@ If the developer authorizes remediation, make one focused, evidence-backed fix a
 - Keep the subject under 72 characters; no trailing period. Use an optional body to explain non-obvious rationale, and `BREAKING CHANGE:` when applicable.
 - Examples: `feat(auth): add session expiry validation`; `fix(api): handle missing customer id`; `docs: describe local setup`.
 - Do not push or modify remotes without a separate, explicit instruction.
+- Commits should be written in brazilian portuguese unless you are explicitely told otherwise
 
 ## 8. Stop-and-escalate conditions
 
